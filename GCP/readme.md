@@ -2,9 +2,8 @@
 
 ###Intro
 
-This doc serves as both a guide and a workshop and help introduce beginners to the Google Cloud Platform.
-In GCP, much of the basic networking is simplified so very little focus will be put on the networking aspect.
-This also wil not touch on serverless infrastructure or Big Data.
+These docs serve as both a guide and a workshop and help introduce beginners to the Google Cloud Platform.
+This will cover the basics of creating and managing a simple VPC and deploying simple servers leveraging Google Compute Engine.
 
 ## Context
 
@@ -27,7 +26,7 @@ Ideally, the server should contain 2 disks, one for boot and one for the LAMP DB
 The webserver will not allow connections on any port other than 443 and 8080, thus you will be unable to SSH to it. To keep the
 environment secure, you need to create a Bastion server. The bastion should only allow SSH access from specific public IPs (including yours).
 To ensure the security of the Bastion, no scopes or permissions should be assigned to it. The bastion will be running little to no
-applications so it should also be a small machine type. As with the webserver, the bastion should come with certain tools for debugging, 
+applications so it should also be a small machine type. As with the webserver, the bastion should come with certain tools for debugging,
 use your preferred method to install the following:
 - curl
 - nmap
