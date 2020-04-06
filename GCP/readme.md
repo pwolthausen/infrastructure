@@ -1,6 +1,6 @@
 # GCP Infrastructure basics
 
-###Intro
+### Intro
 
 These docs serve as both a guide and a workshop and help introduce beginners to the Google Cloud Platform.
 This will cover the basics of creating and managing a simple VPC and deploying simple servers leveraging Google Compute Engine.
