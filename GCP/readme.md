@@ -35,3 +35,13 @@ use your preferred method to install the following:
 
 Once both are created, make sure that you can [SSH to the bastion server](https://cloud.google.com/compute/docs/instances/connecting-to-instance#gcetools), then from the bastion to the web server.
 You should also see the default apache web page if you visit the web server's exernal IP.
+
+###Step 2
+
+You will leverage the cloud to scale your webserver out using a managed instance group and a load balancer. We will assume that your webserver uses shared remote storage (such as Google Cloud Storage) to store content so there is no need to replicate data between servers. Your MIG should have at least 1 GCE VM running without errors. If the instance is being recreated, you have misconfigured something.
+
+#### Managed Instance group
+You need to have an instance template to use for the managed instance group (MIG). Build an instance template using the currently configured webserver as a basis (see GCP public docs). Configure the MIG with minimum number of instances set to 1 and maximum to 10. You will also need to configure a health check, use `/` as the path. Make sure to configure the MIG to span multiple zones.
+
+#### Global Load Balancer
+You will need to first reserve a new static IP address, the one being used for the webserver is regional, you will need a global IP to assign to the Load Balancer. Next, create a Global HTTP(S) Load Balancer using the UI that will point to the MIG you just created.
