@@ -18,3 +18,7 @@ Create firewall rules to accomplish the following:
 - Allow all internal traffic within each VPC
 - Allow all traffic between both VPCs
 - Allow HTTP, HTTPS, SSH, and RDP traffic to specific instances using network tags
+
+## Alternate Step 2: Use Cloud VPN
+
+As an alternate to VPC peering, you can use Cloud VPN. Cloud VPN is very useful when you need to connect the VPC to another network outside of GCP (such as on prem or another cloud). You can try using CLoud VPN instead of using VPC peering to test this resource. Connecting two GCP VPC networks (especially in the same project) is not recommended, this should only be used to test out the cloud VPN. 
